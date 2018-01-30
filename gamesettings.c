@@ -150,7 +150,10 @@ struct GameSettings* initializeGame() {
         snprintf(prompt, 128, "Enter Host IP: ");
         recieveInput(ipInput, prompt, 0);
         
-        if (strlen(ipInput) == 0) {
+        ipInput[strcspn(ipInput, "\n")] = 0;
+        
+        if (strlen(ipInput) == 1) {
+            //inet_pton(AF_INET,ipInput,&(clientAddress.sin_addr));
             inet_pton(AF_INET,"127.0.0.1",&(clientAddress.sin_addr));
         } else {
             inet_pton(AF_INET,ipInput,&(clientAddress.sin_addr));

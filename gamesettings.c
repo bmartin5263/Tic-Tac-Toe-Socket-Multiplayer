@@ -86,15 +86,15 @@ struct GameSettings* initializeGame() {
         
         listen(listenSock, 5);
         
-        char hostbuf[256];
-        char * ipbuf;
+        char hostbuf[512];
+        char *ipbuf;
         struct hostent *hostentry;
         int ret;
         ret = gethostname(hostbuf,sizeof(hostbuf));
         hostentry = gethostbyname(hostbuf);
-        ipbuf = inet_ntoa(*((struct in_addr *)hostentry->h_addr_list[0]));
+        //ipbuf = inet_ntoa(*((struct in_addr *)hostentry->h_addr_list[0]));
         
-        printf("Host IP: %s\n", ipbuf);
+        //printf("Host IP: %s\n", ipbuf);
         printf("Waiting for Opponent...\n");
         
         clientSock = accept(listenSock, (struct sockaddr*) NULL, NULL);

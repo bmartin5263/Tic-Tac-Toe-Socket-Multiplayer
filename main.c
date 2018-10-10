@@ -8,6 +8,7 @@
 
 #include "header.h"
 
+
 int main(int argc, const char * argv[]) {
     printf("\e[1;1H\e[2J");
     printf("Welcome to Tic-Tac-Toe!\n");
